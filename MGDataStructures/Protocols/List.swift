@@ -10,13 +10,13 @@ import Foundation
 public protocol List: Collection {
     associatedtype E
     
-    mutating func add(_ e: E)
+    mutating func append(_ newElement: E)
     
-    mutating func add(index: Int, _ element: E)
+    mutating func insert(_ newElement: E, at index: Int)
     
-    func get(index: Int) -> E
+    func get(_ index: Int) -> E
     
-    mutating func remove(index: Int) -> E
+    mutating func remove(at index: Int) -> E
     
-    mutating func set(index: Int, _ element: E) -> E
+    mutating func set(_ newElement: E, at index: Int) -> E
 }

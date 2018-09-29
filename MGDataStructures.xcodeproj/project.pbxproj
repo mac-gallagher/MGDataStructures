@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD492FE1215F0569000917EB /* ArrayListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD492FE0215F0569000917EB /* ArrayListTests.swift */; };
+		AD492FE3215F0569000917EB /* MGDataStructures.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD7005F32159D83E00404C5D /* MGDataStructures.framework */; };
 		AD7006042159D84C00404C5D /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7005FF2159D84C00404C5D /* Collection.swift */; };
 		AD7006052159D84C00404C5D /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7006002159D84C00404C5D /* List.swift */; };
 		AD7006062159D84C00404C5D /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7006012159D84C00404C5D /* Map.swift */; };
@@ -17,7 +19,20 @@
 		AD700647215A113300404C5D /* LinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD700646215A113300404C5D /* LinkedList.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		AD492FE4215F0569000917EB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AD7005EA2159D83E00404C5D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AD7005F22159D83E00404C5D;
+			remoteInfo = MGDataStructures;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		AD492FDE215F0569000917EB /* MGDataStructuresTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MGDataStructuresTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD492FE0215F0569000917EB /* ArrayListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayListTests.swift; sourceTree = "<group>"; };
+		AD492FE2215F0569000917EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AD7005F32159D83E00404C5D /* MGDataStructures.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MGDataStructures.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD7005F72159D83E00404C5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AD7005FF2159D84C00404C5D /* Collection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
@@ -31,6 +46,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		AD492FDB215F0569000917EB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AD492FE3215F0569000917EB /* MGDataStructures.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AD7005F02159D83E00404C5D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -41,10 +64,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AD492FDF215F0569000917EB /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				AD492FE0215F0569000917EB /* ArrayListTests.swift */,
+				AD492FE2215F0569000917EB /* Info.plist */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
 		AD7005E92159D83E00404C5D = {
 			isa = PBXGroup;
 			children = (
 				AD7005F52159D83E00404C5D /* MGDataStructures */,
+				AD492FDF215F0569000917EB /* Tests */,
 				AD7005F42159D83E00404C5D /* Products */,
 				AD7006402159DDCD00404C5D /* Frameworks */,
 			);
@@ -54,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				AD7005F32159D83E00404C5D /* MGDataStructures.framework */,
+				AD492FDE215F0569000917EB /* MGDataStructuresTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -110,6 +144,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		AD492FDD215F0569000917EB /* MGDataStructuresTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AD492FE8215F0569000917EB /* Build configuration list for PBXNativeTarget "MGDataStructuresTests" */;
+			buildPhases = (
+				AD492FDA215F0569000917EB /* Sources */,
+				AD492FDB215F0569000917EB /* Frameworks */,
+				AD492FDC215F0569000917EB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AD492FE5215F0569000917EB /* PBXTargetDependency */,
+			);
+			name = MGDataStructuresTests;
+			productName = MGDataStructuresTests;
+			productReference = AD492FDE215F0569000917EB /* MGDataStructuresTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		AD7005F22159D83E00404C5D /* MGDataStructures */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = AD7005FB2159D83E00404C5D /* Build configuration list for PBXNativeTarget "MGDataStructures" */;
@@ -134,9 +186,13 @@
 		AD7005EA2159D83E00404C5D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 1000;
 				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = "Mac Gallagher";
 				TargetAttributes = {
+					AD492FDD215F0569000917EB = {
+						CreatedOnToolsVersion = 10.0;
+					};
 					AD7005F22159D83E00404C5D = {
 						CreatedOnToolsVersion = 10.0;
 					};
@@ -155,11 +211,19 @@
 			projectRoot = "";
 			targets = (
 				AD7005F22159D83E00404C5D /* MGDataStructures */,
+				AD492FDD215F0569000917EB /* MGDataStructuresTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		AD492FDC215F0569000917EB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AD7005F12159D83E00404C5D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -170,6 +234,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		AD492FDA215F0569000917EB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AD492FE1215F0569000917EB /* ArrayListTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AD7005EF2159D83E00404C5D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -187,7 +259,51 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		AD492FE5215F0569000917EB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AD7005F22159D83E00404C5D /* MGDataStructures */;
+			targetProxy = AD492FE4215F0569000917EB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		AD492FE6215F0569000917EB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DYZ8Y2U8DB;
+				INFOPLIST_FILE = Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.macgallagher.MGDataStructuresTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AD492FE7215F0569000917EB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DYZ8Y2U8DB;
+				INFOPLIST_FILE = Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.macgallagher.MGDataStructuresTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		AD7005F92159D83E00404C5D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -363,6 +479,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		AD492FE8215F0569000917EB /* Build configuration list for PBXNativeTarget "MGDataStructuresTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AD492FE6215F0569000917EB /* Debug */,
+				AD492FE7215F0569000917EB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		AD7005ED2159D83E00404C5D /* Build configuration list for PBXProject "MGDataStructures" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

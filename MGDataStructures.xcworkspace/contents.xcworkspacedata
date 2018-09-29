@@ -2,12 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:ArrayList/ArrayList.playground">
-   </FileRef>
-   <FileRef
-      location = "group:LinkedList/LinkedList.playground">
-   </FileRef>
-   <FileRef
       location = "container:MGDataStructures.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Playgrounds/ArrayList.playground">
+   </FileRef>
+   <FileRef
+      location = "group:Playgrounds/LinkedList.playground">
    </FileRef>
 </Workspace>

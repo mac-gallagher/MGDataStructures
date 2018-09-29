@@ -10,11 +10,11 @@ import Foundation
 public protocol Collection {
     associatedtype E
     
-    mutating func clear()
+    var count: Int { get }
 
-    func isEmpty() -> Bool
+    var isEmpty: Bool { get }
     
-    func size() -> Int
-    
+    mutating func removeAll()
+
     func toArray() -> [E]
 }

@@ -9,8 +9,15 @@ import Foundation
 public struct ArrayList<E>: List {
    
     private var arr: [E?]
+    
+    /// The total number of elements that the array can contain without allocating new storage.
     public var capacity: Int { return arr.count }
-    private var count: Int = 0
+
+    /// The number of elements in the list.
+    public var count: Int = 0
+    
+    /// A Boolean value indicating whether the list is empty.
+    public var isEmpty: Bool { return count == 0 }
     
     /**
      Constructs an empty list with an initial capacity of ten.
@@ -33,17 +40,19 @@ public struct ArrayList<E>: List {
 
      - Complexity: O(1) on average, over many calls to `add(_:)` on the same list. The worst-case is O(*n*), where *n* is the size of the list. This occurs when appending an element to a list whose size is equal to its capacity.
      
-     - Parameter e: element to be appended to this list.
+     - Parameter newElement: element to be appended to this list.
     */
-    public mutating func add(_ e: E) {
-        if count == capacity {
+    public mutating func append(_ newElement: E) {
+        if capacity == 0 {
+            arr.append(nil)
+        } else if count == capacity {
             var temp = Array<E?>(repeating: nil, count: 2 * count)
             for i in 0..<count {
                 temp[i] = arr[i]
             }
             arr = temp
         }
-        arr[count] = e
+        arr[count] = newElement
         count += 1
     }
     
@@ -52,10 +61,10 @@ public struct ArrayList<E>: List {
      
      - Complexity: O(*n*), where *n* is the length of the list. If `index == size()`, this method is equivalent to `add(_):`.
      
+     - Parameter newElement: Element to be inserted.
      - Parameter index: Index at which the specified element is to be inserted.
-     - Parameter element: Element to be inserted.
     */
-    public mutating func add(index: Int, _ element: E) {
+    public mutating func insert(_ newElement: E, at index: Int) {
         if count == capacity {
             var temp = Array<E?>(repeating: nil, count: 2 * count)
             for index in 0..<count {
@@ -63,10 +72,10 @@ public struct ArrayList<E>: List {
             }
             arr = temp
         }
-        for i in index..<count {
-            arr[i+1] = arr[i]
+        for i in 0..<(count - index) {
+            arr[count - i] = arr[count - i - 1]
         }
-        arr[index] = element
+        arr[index] = newElement
         count += 1
     }
     
@@ -79,7 +88,7 @@ public struct ArrayList<E>: List {
      
      - Returns: The element at the specified position in this list.
     */
-    public func get(index: Int) -> E {
+    public func get(_ index: Int) -> E {
         if index >= 0 && index < count {
             return arr[index]!
         } else {
@@ -96,12 +105,12 @@ public struct ArrayList<E>: List {
      
      - Returns: The element that was removed from the list.
     */
-    public mutating func remove(index: Int) -> E {
+    public mutating func remove(at index: Int) -> E {
         let temp = arr[index]
         for i in index..<(count - 1) {
-            arr[i] = arr[i+1]
+            arr[i] = arr[i + 1]
         }
-        arr[count-1] = nil
+        arr[count - 1] = nil
         count -= 1
         return temp!
     }
@@ -111,14 +120,14 @@ public struct ArrayList<E>: List {
      
      - Complexity: O(1)
      
+     - Parameter newElement: Element to be stored at the specified position.
      - Parameter index: Index of the element to replace.
-     - Parameter element: Element to be stored at the specified position.
      
      - Returns: The element previously at the specified position.
     */
-    public mutating func set(index: Int, _ element: E) -> E {
+    public mutating func set(_ newElement: E, at index: Int) -> E {
         let temp = arr[index]
-        arr[index] = element
+        arr[index] = newElement
         return temp!
     }
     
@@ -127,26 +136,12 @@ public struct ArrayList<E>: List {
      
      - Complexity: O(*n*), where *n* is the length of the list.
     */
-    public mutating func clear() {
+    public mutating func removeAll() {
         for i in 0..<count {
             arr[i] = nil
         }
         count = 0
     }
-    
-    /**
-     Returns true if this list contains no elements.
-     
-     - Returns: True if this list contains no elements.
-    */
-    public func isEmpty() -> Bool { return count == 0 }
-    
-    /**
-     Returns the number of elements in this list.
-     
-     - Returns: The number of elements in this list.
-    */
-    public func size() -> Int { return count }
     
     /**
      Returns an array containing all of the elements in this list in proper sequence (from first to last element).
