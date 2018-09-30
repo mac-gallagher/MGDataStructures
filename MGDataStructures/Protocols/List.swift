@@ -1,16 +1,16 @@
 //
 //  List.swift
-//  
+//  MGDataStructures
 //
 //  Created by Mac Gallagher on 9/24/18.
+//  Copyright © 2018 Mac Gallagher. All rights reserved.
 //
 
 import Foundation
 
 public protocol List: Collection {
-    associatedtype E
     
-    mutating func append(_ newElement: E)
+    mutating func add(_ newElement: E)
     
     mutating func insert(_ newElement: E, at index: Int)
     

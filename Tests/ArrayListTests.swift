@@ -31,32 +31,32 @@ class ArrayListTests: XCTestCase {
         XCTAssertEqual(emptyList.count, 0)
     }
     
-    func testAppendOnEmptyList() {
+    func testAddOnEmptyList() {
         var list = ArrayList<Int>()
-        list.append(123)
+        list.add(123)
         XCTAssertEqual(list.count, 1)
         XCTAssertFalse(list.isEmpty)
     }
     
-    func testAppend() {
+    func testAdd() {
         var list = ArrayList<Int>()
-        list.append(123)
-        list.append(456)
-        list.append(789)
+        list.add(123)
+        list.add(456)
+        list.add(789)
         XCTAssertEqual(list.get(0), 123)
         XCTAssertEqual(list.get(1), 456)
         XCTAssertEqual(list.get(2), 789)
         XCTAssertEqual(list.count, 3)
     }
     
-    func testInsertAtOnEmptyList() {
+    func testAddAtOnEmptyList() {
         var list = ArrayList<Int>()
         list.insert(123, at: 0)
         XCTAssertEqual(list.count, 1)
         XCTAssertFalse(list.isEmpty)
     }
     
-    func testInsertAt() {
+    func testAddAt() {
         var list = ArrayList<String>()
         list.insert("a", at: 0)
         list.insert("b", at: 0)
@@ -74,33 +74,39 @@ class ArrayListTests: XCTestCase {
         var list1 = ArrayList<Int>(initialCapacity: 0)
         XCTAssertEqual(list1.capacity, 0)
         
-        list1.append(123)
+        list1.add(123)
         XCTAssertEqual(list1.capacity, 1)
         
         var list2 = ArrayList<Int>(initialCapacity: 3)
         for _ in 0..<3 {
-            list2.append(123)
+            list2.add(123)
         }
         XCTAssertEqual(list2.capacity, 3)
         
-        list2.append(456)
-        XCTAssertEqual(list2.capacity, 6)
+        list2.add(456)
+        XCTAssertEqual(list2.capacity, 3 + 3/2)
+        
+        var list3 = ArrayList<Int>(initialCapacity: 1000)
+        for _ in 0..<1001 {
+            list3.add(123)
+        }
+        XCTAssertEqual(list3.capacity, 1000 + 1000/2)
     }
     
     func testRemoveAtOnListWithOneElement() {
         var list = ArrayList<Int>()
-        list.append(123)
+        list.add(123)
         XCTAssertEqual(123, list.remove(at: 0))
         XCTAssertTrue(list.isEmpty)
     }
     
     func testRemoveAt() {
         var list = ArrayList<String>()
-        list.append("a")
-        list.append("b")
-        list.append("c")
-        list.append("d")
-        list.append("e")
+        list.add("a")
+        list.add("b")
+        list.add("c")
+        list.add("d")
+        list.add("e")
         
         XCTAssertEqual(list.remove(at: 0), "a")
         XCTAssertEqual(list.get(0), "b")
@@ -122,20 +128,20 @@ class ArrayListTests: XCTestCase {
     
     func testRemoveAll() {
         var list = ArrayList<String>()
-        list.append("a")
-        list.append("b")
-        list.append("c")
-        list.append("d")
+        list.add("a")
+        list.add("b")
+        list.add("c")
+        list.add("d")
         list.removeAll()
         XCTAssertTrue(list.isEmpty)
     }
     
     func testToArray() {
         var list = ArrayList<String>()
-        list.append("a")
-        list.append("b")
-        list.append("c")
-        list.append("d")
+        list.add("a")
+        list.add("b")
+        list.add("c")
+        list.add("d")
         
         let arr = ["a", "b", "c", "d"]
         XCTAssertTrue(list.toArray().elementsEqual(arr))

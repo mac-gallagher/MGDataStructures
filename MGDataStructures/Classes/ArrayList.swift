@@ -1,22 +1,27 @@
 //
 //  ArrayList.swift
+//  MGDataStructures
 //
 //  Created by Mac Gallagher on 9/24/18.
+//  Copyright © 2018 Mac Gallagher. All rights reserved.
 //
 
 import Foundation
 
+/**
+ Resizable-array implementation of the List interface.
+*/
 public struct ArrayList<E>: List {
    
     private var arr: [E?]
     
-    /// The total number of elements that the array can contain without allocating new storage.
+    /// The total number of elements that this list can contain without allocating new storage.
     public var capacity: Int { return arr.count }
 
-    /// The number of elements in the list.
+    /// The number of elements in this list.
     public var count: Int = 0
     
-    /// A Boolean value indicating whether the list is empty.
+    /// A Boolean value indicating whether this list is empty.
     public var isEmpty: Bool { return count == 0 }
     
     /**
@@ -37,40 +42,43 @@ public struct ArrayList<E>: List {
     
     /**
      Appends the specified element to the end of this list.
-
+     
      - Complexity: O(1) on average, over many calls to `add(_:)` on the same list. The worst-case is O(*n*), where *n* is the size of the list. This occurs when appending an element to a list whose size is equal to its capacity.
      
      - Parameter newElement: element to be appended to this list.
-    */
-    public mutating func append(_ newElement: E) {
+     */
+    public mutating func add(_ newElement: E) {
         if capacity == 0 {
             arr.append(nil)
         } else if count == capacity {
-            var temp = Array<E?>(repeating: nil, count: 2 * count)
-            for i in 0..<count {
-                temp[i] = arr[i]
-            }
-            arr = temp
+            increaseCapacity()
         }
         arr[count] = newElement
         count += 1
     }
     
     /**
+     Increases the capacity of the list by 50%.
+    */
+    private mutating func increaseCapacity() {
+        var temp = Array<E?>(repeating: nil, count: count + (count / 2))
+        for i in 0..<count {
+            temp[i] = arr[i]
+        }
+        arr = temp
+    }
+    
+    /**
      Inserts the specified element at the specified position in this list. Shifts the element currently at that position and any subsequent elements to the right (adds one to their indices).
      
-     - Complexity: O(*n*), where *n* is the length of the list. If `index == size()`, this method is equivalent to `add(_):`.
+     - Complexity: O(*n*), where *n* is the length of the list. If `index == count`, this method is equivalent to `add(_):`.
      
      - Parameter newElement: Element to be inserted.
      - Parameter index: Index at which the specified element is to be inserted.
     */
     public mutating func insert(_ newElement: E, at index: Int) {
         if count == capacity {
-            var temp = Array<E?>(repeating: nil, count: 2 * count)
-            for index in 0..<count {
-                temp[index] = arr[index]
-            }
-            arr = temp
+            increaseCapacity()
         }
         for i in 0..<(count - index) {
             arr[count - i] = arr[count - i - 1]

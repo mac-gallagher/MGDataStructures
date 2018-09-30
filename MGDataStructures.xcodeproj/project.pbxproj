@@ -11,12 +11,9 @@
 		AD492FE3215F0569000917EB /* MGDataStructures.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD7005F32159D83E00404C5D /* MGDataStructures.framework */; };
 		AD7006042159D84C00404C5D /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7005FF2159D84C00404C5D /* Collection.swift */; };
 		AD7006052159D84C00404C5D /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7006002159D84C00404C5D /* List.swift */; };
-		AD7006062159D84C00404C5D /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7006012159D84C00404C5D /* Map.swift */; };
 		AD7006072159D84C00404C5D /* ArrayList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7006032159D84C00404C5D /* ArrayList.swift */; };
-		AD7006092159D89800404C5D /* HashTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7006082159D89800404C5D /* HashTable.swift */; };
-		AD700643215A107000404C5D /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD700642215A107000404C5D /* Stack.swift */; };
-		AD700645215A107F00404C5D /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD700644215A107F00404C5D /* Queue.swift */; };
 		AD700647215A113300404C5D /* LinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD700646215A113300404C5D /* LinkedList.swift */; };
+		AD76161F21617DE500C12A87 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD76161E21617DE500C12A87 /* Queue.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,12 +34,9 @@
 		AD7005F72159D83E00404C5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AD7005FF2159D84C00404C5D /* Collection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
 		AD7006002159D84C00404C5D /* List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
-		AD7006012159D84C00404C5D /* Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
 		AD7006032159D84C00404C5D /* ArrayList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayList.swift; sourceTree = "<group>"; };
-		AD7006082159D89800404C5D /* HashTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashTable.swift; sourceTree = "<group>"; };
-		AD700642215A107000404C5D /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
-		AD700644215A107F00404C5D /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		AD700646215A113300404C5D /* LinkedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedList.swift; sourceTree = "<group>"; };
+		AD76161E21617DE500C12A87 /* Queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,9 +99,9 @@
 		AD7005FE2159D84C00404C5D /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				AD7005FF2159D84C00404C5D /* Collection.swift */,
 				AD7006002159D84C00404C5D /* List.swift */,
-				AD7006012159D84C00404C5D /* Map.swift */,
+				AD76161E21617DE500C12A87 /* Queue.swift */,
+				AD7005FF2159D84C00404C5D /* Collection.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -116,9 +110,6 @@
 			isa = PBXGroup;
 			children = (
 				AD7006032159D84C00404C5D /* ArrayList.swift */,
-				AD7006082159D89800404C5D /* HashTable.swift */,
-				AD700642215A107000404C5D /* Stack.swift */,
-				AD700644215A107F00404C5D /* Queue.swift */,
 				AD700646215A113300404C5D /* LinkedList.swift */,
 			);
 			path = Classes;
@@ -247,11 +238,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD7006042159D84C00404C5D /* Collection.swift in Sources */,
-				AD700645215A107F00404C5D /* Queue.swift in Sources */,
+				AD76161F21617DE500C12A87 /* Queue.swift in Sources */,
 				AD7006072159D84C00404C5D /* ArrayList.swift in Sources */,
-				AD7006092159D89800404C5D /* HashTable.swift in Sources */,
-				AD7006062159D84C00404C5D /* Map.swift in Sources */,
-				AD700643215A107000404C5D /* Stack.swift in Sources */,
 				AD700647215A113300404C5D /* LinkedList.swift in Sources */,
 				AD7006052159D84C00404C5D /* List.swift in Sources */,
 			);

@@ -3,7 +3,7 @@ import MGDataStructures
 var arr = ArrayList<Character>(initialCapacity: 2)
 for i in 0..<9 {
     if (i % 2 == 0) {
-        arr.append(Character("\(i)"))
+        arr.add(Character("\(i)"))
     }
 }
 print(arr)
