@@ -1,45 +1,36 @@
 //
-//  MGDataStructuresTests.swift
+//  LinkedListTests.swift
 //  MGDataStructuresTests
 //
-//  Created by Mac Gallagher on 9/28/18.
+//  Created by Mac Gallagher on 9/30/18.
 //  Copyright © 2018 Mac Gallagher. All rights reserved.
 //
 
 import XCTest
 @testable import MGDataStructures
 
-class ArrayListTests: XCTestCase {
-    
-    func testInitialization() {
-        let list1 = ArrayList<Any>()
-        XCTAssertEqual(list1.capacity, 10)
-        XCTAssertEqual(list1.count, 0)
-        
-        let list2 = ArrayList<Any>(initialCapacity: 5)
-        XCTAssertEqual(list2.capacity, 5)
-        XCTAssertEqual(list2.count, 0)
-        
-        let list3 = ArrayList<Any>(initialCapacity: 0)
-        XCTAssertEqual(list3.capacity, 0)
-        XCTAssertEqual(list3.count, 0)
-    }
+class LinkedListTests: XCTestCase {
     
     func testEmptyList() {
-        let emptyList = ArrayList<Any>()
+        let emptyList = LinkedList<Any>()
         XCTAssertTrue(emptyList.isEmpty)
         XCTAssertEqual(emptyList.count, 0)
+        XCTAssertNil(emptyList.first)
+        XCTAssertNil(emptyList.last)
     }
     
     func testAddOnEmptyList() {
-        var list = ArrayList<Int>()
+        var list = LinkedList<Int>()
         list.add(123)
         XCTAssertEqual(list.count, 1)
         XCTAssertFalse(list.isEmpty)
+        XCTAssertEqual(list.get(0), 123)
+        XCTAssertEqual(list.first, 123)
+        XCTAssertEqual(list.last, 123)
     }
     
     func testAdd() {
-        var list = ArrayList<Int>()
+        var list = LinkedList<Int>()
         list.add(123)
         list.add(456)
         list.add(789)
@@ -47,17 +38,20 @@ class ArrayListTests: XCTestCase {
         XCTAssertEqual(list.get(1), 456)
         XCTAssertEqual(list.get(2), 789)
         XCTAssertEqual(list.count, 3)
+        XCTAssertEqual(list.first, 123)
+        XCTAssertEqual(list.last, 789)
     }
     
     func testInsertAtOnEmptyList() {
-        var list = ArrayList<Int>()
+        var list = LinkedList<Int>()
         list.insert(123, at: 0)
         XCTAssertEqual(list.count, 1)
         XCTAssertFalse(list.isEmpty)
+        XCTAssertEqual(list.get(0), 123)
     }
     
     func testInsertAt() {
-        var list = ArrayList<String>()
+        var list = LinkedList<String>()
         list.insert("a", at: 0)
         list.insert("b", at: 0)
         list.insert("c", at: 2)
@@ -70,38 +64,40 @@ class ArrayListTests: XCTestCase {
         XCTAssertEqual(list.get(4), "e")
     }
     
-    func testDynamicResizing() {
-        var list1 = ArrayList<Int>(initialCapacity: 0)
-        XCTAssertEqual(list1.capacity, 0)
-        
-        list1.add(123)
-        XCTAssertEqual(list1.capacity, 1)
-        
-        var list2 = ArrayList<Int>(initialCapacity: 3)
-        for _ in 0..<3 {
-            list2.add(123)
-        }
-        XCTAssertEqual(list2.capacity, 3)
-        
-        list2.add(456)
-        XCTAssertEqual(list2.capacity, 3 + 3/2)
-        
-        var list3 = ArrayList<Int>(initialCapacity: 1000)
-        for _ in 0..<1001 {
-            list3.add(123)
-        }
-        XCTAssertEqual(list3.capacity, 1000 + 1000/2)
+    func testPeekOnEmptyList() {
+        let emptyList = LinkedList<Any>()
+        XCTAssertNil(emptyList.peek())
+    }
+    
+    func testPeek() {
+        var list = LinkedList<Int>()
+        list.add(123)
+        list.add(456)
+        XCTAssertEqual(list.peek(), 123)
+    }
+
+    func testPollOnEmptyList() {
+        var emptyList = LinkedList<Any>()
+        XCTAssertNil(emptyList.poll())
+    }
+    
+    func testPoll() {
+        var list = LinkedList<Int>()
+        list.add(123)
+        list.add(456)
+        XCTAssertEqual(list.poll(), 123)
+        XCTAssertEqual(list.first, 456)
     }
     
     func testRemoveAtOnListWithOneElement() {
-        var list = ArrayList<Int>()
+        var list = LinkedList<Int>()
         list.add(123)
         XCTAssertEqual(123, list.remove(at: 0))
         XCTAssertTrue(list.isEmpty)
     }
     
     func testRemoveAt() {
-        var list = ArrayList<String>()
+        var list = LinkedList<String>()
         list.add("a")
         list.add("b")
         list.add("c")
@@ -127,17 +123,31 @@ class ArrayListTests: XCTestCase {
     }
     
     func testRemoveAll() {
-        var list = ArrayList<String>()
+        var list = LinkedList<Int>()
+        list.add(123)
+        list.add(456)
+        list.removeAll()
+        XCTAssertTrue(list.isEmpty)
+        XCTAssertEqual(list.count, 0)
+    }
+    
+    func testSet() {
+        var list = LinkedList<String>()
         list.add("a")
         list.add("b")
         list.add("c")
-        list.add("d")
-        list.removeAll()
-        XCTAssertTrue(list.isEmpty)
+        
+        list.set("d", at: 0)
+        list.set("e", at: 1)
+        list.set("f", at: 2)
+        
+        XCTAssertEqual(list.get(0), "d")
+        XCTAssertEqual(list.get(1), "e")
+        XCTAssertEqual(list.get(2), "f")
     }
     
     func testToArray() {
-        var list = ArrayList<String>()
+        var list = LinkedList<String>()
         list.add("a")
         list.add("b")
         list.add("c")
